@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
+import Button from "../../../components/Button/Button";
 
 
 
@@ -27,6 +28,7 @@ const PopularMenu = () => {
           menu.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
         }
       </div>
+      <Button buttonName={"View Full Menu"}></Button>
     </section>
   );
 };
