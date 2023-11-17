@@ -13,10 +13,10 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar fixed z-10 rounded-xl bg-opacity-40 bg-gradient-to-r from-cyan-200 max-w-screen-xl text-black">
+    <div className="navbar fixed z-10 rounded-lg bg-black bg-opacity-50 uppercase max-w-screen-xl text-white">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-success text-white lg:hidden">
+          <label tabIndex={0} className="btn btn-success lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -34,7 +34,7 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-black bg-base-200 rounded-box w-52"
           >
             {navOptions}
           </ul>
