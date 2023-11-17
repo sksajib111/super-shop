@@ -2,6 +2,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import './style.css';
 
 import featuredImg from '../../../assets/Banner/Banner 1.jpg'
+import Button from "../../../components/Button/Button";
 
 const Featured = () => {
   return (
@@ -19,7 +20,7 @@ const Featured = () => {
           <p>Aug 20, 2024</p>
           <p className=" uppercase">Where can i get some?</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quidem eaque, neque similique deleniti quibusdam voluptatum quas. Quo impedit doloremque labore exercitationem ducimus ex suscipit cupiditate? Totam, quibusdam autem ea assumenda libero, eaque reiciendis molestias perferendis blanditiis ut alias est?</p>
-          <button className="btn btn-outline border-0 border-b-4 text-white mt-5 ">Order Now</button>
+          <Button buttonName="Order Now"></Button>
         </div>
       </div>
     </div>

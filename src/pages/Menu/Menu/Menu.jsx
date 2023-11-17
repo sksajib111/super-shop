@@ -3,11 +3,13 @@ import Cover from "../../Shared/Cover/Cover";
 
 
 const Menu = () => {
+  const images = "https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg"
   return (
-    <div>
+    <>
+    
       <Helmet><title>Menu</title></Helmet>
-      <Cover></Cover>
-    </div>
+      <Cover img={images} title="Our Menu"></Cover>
+    </>
   );
 };
 
