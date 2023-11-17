@@ -3,15 +3,17 @@ import { useEffect, useState } from "react";
 
 const useMenu = () =>{
   const [menu, setMenu] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
     fetch('menu.json')
     .then(data => data.json())
     .then(data => {
-      const popularItem = data.filter(item => item.category === 'popular');
-      setMenu(popularItem)})
+      setMenu(data)
+      setLoading(false)
+    })
   },[])
-  return[ menu ]
+  return[ menu, loading ]
 }
 
 export default useMenu;
