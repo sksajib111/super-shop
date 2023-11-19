@@ -4,10 +4,13 @@ const NavBar = () => {
   const navOptions = (
     <>
       <li>
-      <Link to="/">Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-      <Link to="/menu">Our Menu</Link>
+        <Link to="/menu">Our Menu</Link>
+      </li>
+      <li>
+        <Link to="/order">Order Food</Link>
       </li>
     </>
   );
@@ -27,7 +30,7 @@ const NavBar = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="5"
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
@@ -39,11 +42,14 @@ const NavBar = () => {
             {navOptions}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-white normal-case text-xl font-bold">
+        <Link
+          to="/"
+          className="btn btn-ghost text-white normal-case text-xl font-bold"
+        >
           SUPER-SHOP
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
