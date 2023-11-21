@@ -1,7 +1,7 @@
 import { useState } from "react";
 import orderCoImg from "../../../assets/order/order.jpg";
 import Cover from "../../../pages/Shared/Cover/Cover";
-import { Tab, Tabs, TabList } from "react-tabs";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Card from "../../Shared/Card/Card";
 import pizzaImg from "../../../assets/menu/pizza-bg.jpg";
@@ -34,10 +34,20 @@ const Order = () => {
           <Tab>Desserts</Tab>
           <Tab>Drinks </Tab>
         </TabList>
+        <TabPanel>
+          <div className="grid md:grid-cols-3 gap-4 ">
+          {
+            salad.map(item => <Card key={item._id} item={item}></Card>)
+          }
+          </div>
+        </TabPanel>
+        <TabPanel></TabPanel>
+        <TabPanel></TabPanel>
+        <TabPanel></TabPanel>
       </Tabs>
 
       <div className=" md:p-12 sm:p-6 ">
-      <Card cartImg={pizzaImg} description={"Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets."} title={"Pizza"} btnTitle={"Order Now"}></Card>
+      
       </div>
       
     </div>
