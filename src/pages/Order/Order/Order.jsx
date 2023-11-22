@@ -3,9 +3,8 @@ import orderCoImg from "../../../assets/order/order.jpg";
 import Cover from "../../../pages/Shared/Cover/Cover";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import Card from "../../Shared/Card/Card";
-import pizzaImg from "../../../assets/menu/pizza-bg.jpg";
 import useMenu from "../../../hooks/useMenu";
+import OrderTab from "../OrderTab/OrderTab";
 
 
 const Order = () => {
@@ -15,9 +14,8 @@ const Order = () => {
   const desserts = menu.filter(item => item.category === 'dessert');
   const soup = menu.filter(item => item.category === 'soup');
   const salad = menu.filter(item => item.category === 'salad');
-  const offered = menu.filter(item => item.category === 'offered');
   const pizza = menu.filter(item => item.category === 'pizza');
-
+  const drinks = menu.filter(item => item.category === 'drinks');
   return (
     <div>
       <Cover
@@ -35,15 +33,12 @@ const Order = () => {
           <Tab>Drinks </Tab>
         </TabList>
         <TabPanel>
-          <div className="grid md:grid-cols-3 gap-4 ">
-          {
-            salad.map(item => <Card key={item._id} item={item}></Card>)
-          }
-          </div>
+          <OrderTab items={salad}></OrderTab>
         </TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel><OrderTab items={desserts}></OrderTab></TabPanel>
+        <TabPanel><OrderTab items={soup}></OrderTab></TabPanel>
+        <TabPanel><OrderTab items={pizza}></OrderTab></TabPanel>
+        <TabPanel><OrderTab items={drinks}></OrderTab></TabPanel>
       </Tabs>
 
       <div className=" md:p-12 sm:p-6 ">
