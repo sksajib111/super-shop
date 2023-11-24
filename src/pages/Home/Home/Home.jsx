@@ -20,7 +20,7 @@ const Home = () => {
       <Category></Category>
       <Cover img={coverImg} title={"Super Shope"} description={"Warm goats cheese and roasted vegetable salad with black olive tapenade crostiniPan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jusRoasted duck breast (served pink) with gratin potato"}></Cover>
       <PopularMenu></PopularMenu>
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-4">
       {salad.map((item) => (
         <Card key={item._id} item={item}></Card>
       ))}

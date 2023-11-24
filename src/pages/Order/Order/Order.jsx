@@ -40,10 +40,6 @@ const Order = () => {
         <TabPanel><OrderTab items={pizza}></OrderTab></TabPanel>
         <TabPanel><OrderTab items={drinks}></OrderTab></TabPanel>
       </Tabs>
-
-      <div className=" md:p-12 sm:p-6 ">
-      
-      </div>
       
     </div>
   );
