@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useMenu from "../../../hooks/useMenu";
 import OrderTab from "../OrderTab/OrderTab";
+import { Helmet } from "react-helmet-async";
 
 
 const Order = () => {
@@ -18,6 +19,7 @@ const Order = () => {
   const drinks = menu.filter(item => item.category === 'drinks');
   return (
     <div>
+      <Helmet><title>Super-Shop | Order Food</title></Helmet>
       <Cover
         img={orderCoImg}
         title={"Order Food"}
