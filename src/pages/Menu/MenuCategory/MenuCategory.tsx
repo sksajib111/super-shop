@@ -5,7 +5,7 @@ import Cover from "../../Shared/Cover/Cover";
 import { Link } from "react-router-dom";
 
 const MenuCategory = ({ items, img, title, description }) => {
-  console.log(title);
+
   return (
     <>
       {title && <Cover img={img} title={title} description={description}></Cover>}
