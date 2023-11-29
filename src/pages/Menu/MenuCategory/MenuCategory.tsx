@@ -2,8 +2,10 @@ import React from "react";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import Button from "../../../components/Button/Button";
 import Cover from "../../Shared/Cover/Cover";
+import { Link } from "react-router-dom";
 
 const MenuCategory = ({ items, img, title, description }) => {
+  console.log(title);
   return (
     <>
       {title && <Cover img={img} title={title} description={description}></Cover>}
@@ -13,10 +15,12 @@ const MenuCategory = ({ items, img, title, description }) => {
             <MenuItem key={item._id} item={item}></MenuItem>
           ))}
         </div>
-        <div className="text-center ">
+        <div className="text-center">
+          <Link to={`/order/${title}`}>
           <Button buttonName={"View Full Menu"}></Button>
+          </Link>
         </div>
-      </section>
+      </section> 
     </>
   );
 };
