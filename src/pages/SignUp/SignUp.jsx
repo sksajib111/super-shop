@@ -1,8 +1,5 @@
 import { useForm } from "react-hook-form";
 
-
-
-
 const SignUp = () => {
   const {
     register,
@@ -14,7 +11,7 @@ const SignUp = () => {
     console.log(data);
   };
   // console.log(watch("example"))
-  
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -41,7 +38,9 @@ const SignUp = () => {
                   className="input input-bordered"
                   // required
                 />
-                {errors.name && <span className="text-red-600">Name is required</span>}
+                {errors.name && (
+                  <span className="text-red-600">Name is required</span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -54,7 +53,9 @@ const SignUp = () => {
                   className="input input-bordered"
                   // required
                 />
-                {errors.email && <span className="text-red-600">Email is required</span>}
+                {errors.email && (
+                  <span className="text-red-600">Email is required</span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -62,12 +63,35 @@ const SignUp = () => {
                 </label>
                 <input
                   type="password"
-                  {...register("password", { required: true, minLength:8, maxLength:20 })}
+                  {...register("password", {
+                    required: true,
+                    minLength: 8,
+                    maxLength: 20,
+                    pattern:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[0-9])(?=.*[@#$%^&+=]).{8}$/,
+                  })}
                   placeholder="password"
                   className="input input-bordered"
                   // required
                 />
-                {errors.password && <span className="text-red-600">Password is required</span>}
+                {errors.password?.type === "required" && (
+                  <span className="text-red-600">Password is required</span>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <span className="text-red-600">
+                    Password must be 8 characters
+                  </span>
+                )}
+                {errors.password?.type === "maxLength" && (
+                  <span className="text-red-600">
+                    Password must be less than 20 characters
+                  </span>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <span className="text-red-600">
+                    Password must be at least one uppercase, one lowercase, one special character and one number and 8 or 20 total characters.
+                  </span>
+                )}
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
