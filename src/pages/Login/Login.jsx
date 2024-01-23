@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -18,9 +18,8 @@ const Login = () => {
     loadCaptchaEnginge(6);
   }, []);
 
-  const captchaRef = useRef(null);
-  const handleValidateCaptcha = () => {
-    const user_captcha_value = captchaRef.current.value;
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
     // console.log(user_captcha_value);
     if (validateCaptcha(user_captcha_value) == true) {
       setDisabled(false);
@@ -37,23 +36,23 @@ const Login = () => {
     // console.log(email, password);
     signIn(email, password).then((result) => {
       const user = result.user;
-      // console.log(user);
+      console.log(user);
       Swal.fire({
-        title: "Custom animation with Animate.css",
+        title: "Login Successful",
         showClass: {
           popup: `
             animate__animated
             animate__fadeInUp
             animate__faster
-          `
+          `,
         },
         hideClass: {
           popup: `
             animate__animated
             animate__fadeOutDown
             animate__faster
-          `
-        }
+          `,
+        },
       });
     });
   };
@@ -108,19 +107,19 @@ const Login = () => {
                   <LoadCanvasTemplate />
                 </label>
                 <input
+                  onBlur={handleValidateCaptcha}
                   type="text"
-                  ref={captchaRef}
                   name="captcha"
                   placeholder="type the captcha above"
                   className="input input-bordered"
                   required
                 />
-                <button
-                  onClick={handleValidateCaptcha}
+                {/* <button
+                  
                   className="btn btn-outline btn-xs mt-3"
                 >
                   Validate
-                </button>
+                </button> */}
               </div>
               <div className="form-control mt-6">
                 <input
