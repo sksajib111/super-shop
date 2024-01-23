@@ -7,6 +7,7 @@ import {
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -36,7 +37,24 @@ const Login = () => {
     // console.log(email, password);
     signIn(email, password).then((result) => {
       const user = result.user;
-      console.log(user);
+      // console.log(user);
+      Swal.fire({
+        title: "Custom animation with Animate.css",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+      });
     });
   };
   return (
