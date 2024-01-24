@@ -76,9 +76,9 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <a className="btn bg-success border-none text-white">Log In</a>
-      </div>
+      </div> */}
     </div>
   );
 };

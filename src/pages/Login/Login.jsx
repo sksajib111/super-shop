@@ -114,12 +114,6 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                {/* <button
-                  
-                  className="btn btn-outline btn-xs mt-3"
-                >
-                  Validate
-                </button> */}
               </div>
               <div className="form-control mt-6">
                 <input
@@ -130,9 +124,9 @@ const Login = () => {
                 />
               </div>
             </form>
-            <p>
+            <p  className="mx-auto sm:text-sm mb-5 text-xl">
               <small>
-                New Here? <Link to="/signup">Create an new account</Link>
+              If you don't have an account? <Link to="/signup">Registration now.</Link>
               </small>
             </p>
           </div>
