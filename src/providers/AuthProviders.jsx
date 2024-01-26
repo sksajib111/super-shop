@@ -30,6 +30,7 @@ const AuthProviders = ({ children }) => {
       console.log("current user", currentUser);
       setLoading(false);
     });
+    
     return () => {
       return unsubscribe();
     };
