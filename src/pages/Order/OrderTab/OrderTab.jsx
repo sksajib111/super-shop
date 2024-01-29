@@ -2,7 +2,7 @@ import Card from "../../Shared/Card/Card";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
+// TODO: Implement pagination here?
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
