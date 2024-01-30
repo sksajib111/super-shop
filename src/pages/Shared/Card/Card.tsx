@@ -5,7 +5,8 @@ const Card = ({ item }) => {
   const { name, image, price, recipe } = item;
   const handleAddToCart = item =>{
     console.log(item);
-  }
+    
+  };
   return (
     <div className="card w-96 bg-base-100 shadow-lg">
       <figure className="px-8 pt-8">
