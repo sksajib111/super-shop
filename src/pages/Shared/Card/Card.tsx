@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import Button from "../../../components/Button/Button";
 import { AuthContext } from "../../../providers/AuthProviders";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ item }) => {
   const { name, image, price, recipe } = item;
+  const navigate = useNavigate();
 
   const {user} = useContext(AuthContext);
 
@@ -14,7 +17,7 @@ const Card = ({ item }) => {
       .then(res => res.json())
       .then(data => {
         if(data.insertedIt){
-          wal.fire({
+          Swal.fire({
             position: "top-end",
             icon: "success",
             title: "Your work has been saved",
@@ -23,6 +26,20 @@ const Card = ({ item }) => {
           });
         }
       })
+    }
+    else{
+      Swal.fire({
+        title: "Please login to order the food",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login')
+        }
+      });
     }
     
   };
