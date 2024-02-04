@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import Button from "../../../components/Button/Button";
 import { AuthContext } from "../../../providers/AuthProviders";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Card = ({ item }) => {
   const { name, image, price, recipe } = item;
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {user} = useContext(AuthContext);
 
@@ -29,7 +30,8 @@ const Card = ({ item }) => {
     }
     else{
       Swal.fire({
-        title: "Please login to order the food",
+        title: "Yor are not Logged In",
+        text:"Please login to order the food",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -37,7 +39,7 @@ const Card = ({ item }) => {
         confirmButtonText: "Login now!"
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/login')
+          navigate('/login', {state: {from: location}})
         }
       });
     }
