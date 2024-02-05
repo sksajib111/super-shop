@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Card = ({ item }) => {
-  const { name, image, price, recipe } = item;
+  const { name, image, price, recipe, _id } = item;
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -13,7 +13,14 @@ const Card = ({ item }) => {
 
   const handleAddToCart = item =>{
     console.log(item);
-    if(user){
+    if(user && user.email){
+      const cartItem = {
+        menuId: _id,
+        email: user.email,
+        name,
+        image,
+        price
+      };
       fetch('http://localhost:5000/carts')
       .then(res => res.json())
       .then(data => {
