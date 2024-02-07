@@ -21,7 +21,14 @@ const Card = ({ item }) => {
         image,
         price
       };
-      fetch('http://localhost:5000/carts')
+      fetch('http://localhost:5000/carts', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cartItem)
+      })
       .then(res => res.json())
       .then(data => {
         if(data.insertedIt){
