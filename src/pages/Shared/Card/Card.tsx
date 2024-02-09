@@ -12,7 +12,7 @@ const Card = ({ item }) => {
   const {user} = useContext(AuthContext);
 
   const handleAddToCart = item =>{
-    console.log(item);
+    // console.log(item);
     if(user && user.email){
       const cartItem = {
         menuId: _id,

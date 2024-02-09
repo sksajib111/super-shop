@@ -6,6 +6,8 @@ import { FaCartShopping } from "react-icons/fa6";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
 
+  
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
