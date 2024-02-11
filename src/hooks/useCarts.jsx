@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./UseAxiosSecure";
 
 const useCarts = () => {
   // tan stack query
-  
-  const {data: cart = []} = useQuery({
-    queryKey:['carts'],
-    queryFn: () =>{
-      fetch('http://localhost:5000/carts')
-      .then(res => res.json())
-      .then(data => console.log(data))
-    }
-  })
+  const axiosSecure = useAxiosSecure();
+  const { data: cart = [] } = useQuery({
+    queryKey: ['cart'],
+    queryFn: async() => {
+      const res = await axiosSecure.get('/carts');
+      return res.data;
+    },
+  });
 
   return [cart];
 };
