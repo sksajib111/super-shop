@@ -3,15 +3,17 @@ import Button from "../../../components/Button/Button";
 import { AuthContext } from "../../../providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useCarts from "../../../hooks/useCarts";
 
 const Card = ({ item }) => {
   const { name, image, price, recipe, _id } = item;
   const navigate = useNavigate();
   const location = useLocation();
+  const [, refetch] = useCarts();
 
-  const {user} = useContext(AuthContext);
+  const {user}:any = useContext(AuthContext);
 
-  const handleAddToCart = item =>{
+  const handleAddToCart = () =>{
     // console.log(item);
     if(user && user.email){
       const cartItem = {
@@ -31,7 +33,7 @@ const Card = ({ item }) => {
       })
       .then(res => res.json())
       .then(data => {
-        if(data.insertedIt){
+        if(data.insertedId){
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -39,6 +41,8 @@ const Card = ({ item }) => {
             showConfirmButton: false,
             timer: 1500
           });
+          // refetch cart to update the cart item 
+          refetch();
         }
       })
     }
@@ -70,7 +74,7 @@ const Card = ({ item }) => {
       <div className="card-body items-center text-center">
         <h2 className="card-title">{name}</h2>
         <p>{recipe}</p>
-        <div className="card-actions" onClick={()=> handleAddToCart(item)}>
+        <div className="card-actions" onClick={handleAddToCart}>
           <Button buttonName={"Add To Cart"}></Button>
         </div>
       </div>
