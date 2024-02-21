@@ -7,7 +7,7 @@ const useCarts = () => {
   // tan stack query
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
-  console.log(user?.email);
+  // console.log(user?.email);
   const { refetch, data: cart = [] } = useQuery({
     queryKey: ["cart", user?.email],
     queryFn: async () => {
