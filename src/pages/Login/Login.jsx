@@ -8,6 +8,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -15,7 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/"
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -128,11 +129,16 @@ const Login = () => {
                 />
               </div>
             </form>
-            <p  className="mx-auto sm:text-sm mb-5 text-xl">
+            <p className="mx-auto sm:text-sm mb-5 text-xl">
               <small>
-              If you don't have an account? <Link to="/signup">Registration now.</Link>
+                If you dont have an account?{" "}
+                <Link to="/signup">Registration now.</Link>
               </small>
             </p>
+            <div className="divider w-40 mx-auto">or</div>
+            <div className="mx-auto mb-5">
+            <SocialLogin></SocialLogin>
+            </div>
           </div>
         </div>
       </div>
