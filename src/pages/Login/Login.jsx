@@ -132,12 +132,12 @@ const Login = () => {
             <p className="mx-auto sm:text-sm mb-5 text-xl">
               <small>
                 If you dont have an account?{" "}
-                <Link to="/signup">Registration now.</Link>
+                <Link to="/signup" className=" text-blue-800 font-bold">Registration now.</Link>
               </small>
             </p>
             <div className="divider w-40 mx-auto">or</div>
             <div className="mx-auto mb-5">
-            <SocialLogin></SocialLogin>
+              <SocialLogin></SocialLogin>
             </div>
           </div>
         </div>

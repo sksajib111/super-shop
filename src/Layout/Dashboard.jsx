@@ -1,4 +1,4 @@
-import {  FaBagShopping, FaCalendar, FaCartShopping, FaHouse, FaList, FaRankingStar, FaWallet } from "react-icons/fa6";
+import {  FaBagShopping, FaCalendar, FaCartShopping, FaEnvelope, FaHouse, FaList, FaRankingStar, FaWallet } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useCarts from "../hooks/useCarts";
 
@@ -47,6 +47,11 @@ const Dashboard = () => {
           <li>
             <NavLink to="/order/salad">
               <FaBagShopping />Menu
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/order/contact">
+              <FaEnvelope />Contact
             </NavLink>
           </li>
         </ul>
